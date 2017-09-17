@@ -9,8 +9,13 @@ var bodyParser = require('body-parser');
  app.use(bodyParser.urlencoded({ extended: true }));
 
 
-  app.route('/GET')
-    .get(todoList.list_all_tasks);
-  app.route('/POST')
-  .post(todoList.insert);
+  app.route('/ORDEN/GET')
+    .get(todoList.listarOrden);
+  app.route('/ORDEN/POST')
+  .post(todoList.insertOrden);
+  app.route('/PLATO/GET')
+    .get(todoList.listarPlato);
+  app.route('/PLATO/POST')
+  .post(todoList.insertPlato);
+
 };
