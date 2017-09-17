@@ -16,6 +16,10 @@ var bodyParser = require('body-parser');
   app.route('/PLATO/GET')
     .get(todoList.listarPlato);
   app.route('/PLATO/POST')
+  .post(todoList.insertOrdenPlato);
+  app.route('/ORDENPLATO/GET')
+    .get(todoList.listarOrdenPlato);
+  app.route('/ORDENPLATO/POST')
   .post(todoList.insertPlato);
 
 };
