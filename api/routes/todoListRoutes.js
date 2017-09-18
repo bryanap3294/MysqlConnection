@@ -15,11 +15,15 @@ var bodyParser = require('body-parser');
   .post(todoList.insertOrden);
   app.route('/PLATO/GET')
     .get(todoList.listarPlato);
-  app.route('/PLATO/POST')
-  .post(todoList.insertOrdenPlato);
+  app.route('/USUARIO/GET')
+    .get(todoList.listarUsuario);
   app.route('/ORDENPLATO/GET')
     .get(todoList.listarOrdenPlato);
   app.route('/ORDENPLATO/POST')
+    .post(todoList.insertOrdenPlato);
+  app.route('/PLATO/POST')
   .post(todoList.insertPlato);
+  app.route('/USUARIO/POST')
+  .post(todoList.insertUsuario);
 
 };
