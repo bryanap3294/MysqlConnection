@@ -88,3 +88,26 @@ exports.insertUsuario = function(req, res) {
       res.send('user added to database with ID:');
   });
 };
+
+exports.login = function(req, res){
+	var sql = "select * from usuario where idusuario = ? and pwd = ? ";
+	var reqBody = req.body;
+	var values = [reqBody.idusuario, reqBody.pwd];
+  console.log(JSON.stringify("login"+values));
+
+	con.getconnection().query(sql, values, function (err, result, fields) {
+    	con.getconnection().end();
+        console.log(values+"result: "+result);
+	    if (err) {
+	    	console.log("error ", err);
+	    	res.status(500)
+	    	.json("error");
+	    	throw err;
+	    }
+
+	    var bodyOk = {user: reqBody.idusuario, rol: result[0].rol};
+	    res.status(200)
+	    .json(bodyOk);
+	    return;
+  	});
+}

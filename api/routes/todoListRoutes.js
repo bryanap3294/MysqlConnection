@@ -25,5 +25,7 @@ var bodyParser = require('body-parser');
   .post(todoList.insertPlato);
   app.route('/USUARIO/POST')
   .post(todoList.insertUsuario);
+  app.route('/LOGIN')
+  .post(todoList.login);
 
 };
